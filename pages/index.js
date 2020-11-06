@@ -1,65 +1,100 @@
-import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import styled from 'styled-components'
+import Button from '../components/ui/Button'
+import { H1, Paragraph } from '../components/ui/Typography'
+import Row from '../components/ui/Row'
+import WorksSection from '../components/WorksSection'
+import BlogsSection from '../components/BlogsSection'
+import TextField from '../components/ui/TextField'
+
+const HeroWrapper = styled('div')`
+  height: 70vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+`
+
+const RowHero = styled(Row)`
+  color: #FFF;
+  background: #63AAFF;
+`
+
+const RowWorks = styled(Row)`
+  background: url("/wave.svg");
+  background-repeat: no-repeat;
+  backgrount-position: top;
+  display: flex;
+  align-items: center;
+  padding-top: 300px;
+`
+
+const SubscribeSectionWrapper = styled('div')`
+  height: 300px;
+  display: grid;
+  grid-template-columns: 1fr 1.7fr;
+  align-items: center;
+  gap: 40px;
+`
 
 export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+  return (<>
+    <RowHero>
+      <section>
+        <HeroWrapper>
+          <div>
+            <H1>
+              Hoommaannn!
+            </H1>
+            <Paragraph>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut ullamcorper orci quam, and yes this is just placeholder!
+            </Paragraph>
+            <Button>Tell me more</Button>
+          </div>
+          <div>
+            <img src='/content_creation.png' style={{ width: "100%" }} alt='hero-image' />
+          </div>
+        </HeroWrapper>
+      </section>
+    </RowHero>
 
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
+    <RowWorks>
+      <section>
+        <H1>What we do</H1>
 
-        <p className={styles.description}>
-          Get started by editing{' '}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
+        <WorksSection />
+      </section>
+    </RowWorks>
+    
+    <Row>
+      <section>
+        <H1>An article from us</H1>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
+        <BlogsSection />
+      </section>
+    </Row>
 
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
+    <Row style={{ background: "#63AAFF", color: "#FFF" }}>
+      <section>
+        <SubscribeSectionWrapper>
+          <div>
+            <H1>Get update</H1>
+            <Paragraph>Put your email and we will send you the latest update about our technology</Paragraph>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 0.2fr", gap: "10px" }}>
+            <TextField placeholder='smith@earth.com' />
+            <Button>Submit!</Button>
+          </div>
+        </SubscribeSectionWrapper>
+      </section>
+    </Row>
 
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/import?filter=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
+    <Row style={{ background: "#275a96" }}>
+      <section>
+        <div style={{ textAlign: "center", color: "#FFF", fontSize: "11px" }}>
+          &copy; Hoommaannn 2020
         </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
+      </section>
+    </Row>
+  </>
   )
 }
