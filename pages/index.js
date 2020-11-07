@@ -67,7 +67,7 @@ export default function Home() {
     
     <Row>
       <section>
-        <H1>An article from us</H1>
+        <H1>Some article from us</H1>
 
         <BlogsSection />
       </section>
